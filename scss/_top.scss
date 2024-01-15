@@ -1,0 +1,57 @@
+@use "./mixins" as *;
+
+// リセット
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// 共通設定
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: var(--font-primary);
+  padding-top: 60px;
+}
+
+html {
+  font-size: 14px;
+  // rem 単位影響
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+// ヘッダー
+.site-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+  width: 100%;
+  height: 60px;
+
+  // ロゴ
+  &__logo {
+    img {
+      margin: 0 auto;
+      width: 140px;
+    }
+  }
+
+  // ナビゲーション
+  &__nav-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}

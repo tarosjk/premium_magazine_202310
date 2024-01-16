@@ -36,9 +36,11 @@ ol {
   background: #fff;
   width: 100%;
   height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .site-header__logo img {
-  margin: 0 auto;
   width: 140px;
 }
 .site-header__nav-container {
@@ -47,4 +49,37 @@ ol {
   height: 100%;
   top: 0;
   left: 0;
+}
+
+.site-nav-container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.site-nav-container__nav {
+  text-align: center;
+  flex-grow: 2;
+  display: flex;
+  align-items: center;
+}
+.site-nav-container__nav li {
+  margin-bottom: 2em;
+}
+.site-nav-container__nav li:last-child {
+  margin-bottom: 0;
+}
+.site-nav-container__nav a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.site-nav-container__sns {
+  display: flex;
+  flex-grow: 1;
+}
+.site-nav-container__sns a {
+  margin: 0 8px;
 }/*# sourceMappingURL=style.min.css.map */

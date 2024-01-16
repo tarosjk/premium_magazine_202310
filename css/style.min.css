@@ -1,6 +1,7 @@
 :root {
   --font-primary: "Radio Canada", "Noto Sans JP", sans-serif;
   --color-primary: #000;
+  --easing: cubic-bezier(.69,0,.18,1);
 }
 
 * {
@@ -50,6 +51,19 @@ ol {
   top: 0;
   left: 0;
 }
+@media screen and (min-width: 768px) {
+  .site-header {
+    width: 200px;
+    height: 100vh;
+    flex-direction: column;
+  }
+  .site-header__logo {
+    margin: 40px 0 80px;
+  }
+  .site-header__logo img {
+    width: 160px;
+  }
+}
 
 .site-nav-container {
   background-color: #fff;
@@ -57,6 +71,11 @@ ol {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transform: translateX(100%);
+  transition: 0.8s var(--easing);
+}
+.site-nav-checkbox:checked ~ .site-nav-container {
+  transform: translateX(0);
 }
 .site-nav-container__nav {
   text-align: center;
@@ -82,4 +101,80 @@ ol {
 }
 .site-nav-container__sns a {
   margin: 0 8px;
+}
+@media screen and (min-width: 768px) {
+  .site-nav-container {
+    position: static;
+    transform: translateX(0) !important;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .site-nav-container__nav {
+    align-items: flex-start;
+    text-align: start;
+    padding: 0 15px;
+  }
+  .site-nav-container__nav li {
+    margin-bottom: 1.5em;
+  }
+  .site-nav-container__nav a {
+    font-size: 1rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 3px;
+  }
+  .site-nav-container__nav a::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    background-color: var(--color-primary);
+    left: 0;
+    bottom: 0;
+  }
+}
+
+.site-nav-toggle {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.site-nav-toggle::before, .site-nav-toggle::after,
+.site-nav-toggle span {
+  content: "";
+  height: 1px;
+  width: 30px;
+  background-color: var(--color-primary);
+  position: absolute;
+  transition: 0.4s var(--easing);
+}
+.site-nav-toggle span {
+  transform-origin: left center;
+}
+.site-nav-toggle::before {
+  top: calc(50% - 8px);
+}
+.site-nav-toggle::after {
+  top: calc(50% + 8px);
+}
+.site-nav-checkbox:checked ~ .site-nav-toggle span {
+  transform: scaleX(0);
+}
+.site-nav-checkbox:checked ~ .site-nav-toggle::before {
+  top: 50%;
+  transform: rotate(45deg);
+}
+.site-nav-checkbox:checked ~ .site-nav-toggle::after {
+  top: 50%;
+  transform: rotate(-45deg);
+}
+
+.site-nav-checkbox {
+  display: none;
 }/*# sourceMappingURL=style.min.css.map */

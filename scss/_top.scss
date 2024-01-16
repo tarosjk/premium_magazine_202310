@@ -56,7 +56,23 @@ ol {
     top: 0;
     left: 0;
   }
-}
+
+  // PC ======
+  @include mq {
+    width: 200px;
+    height: 100vh; //100%でも可
+    flex-direction: column;
+
+    // ロゴ
+    &__logo {
+      margin: 40px 0 80px;
+
+      img {
+        width: 160px;
+      }
+    }
+  }
+} //.site-header
 
 // ナビゲーションコンテナ
 .site-nav-container {
@@ -65,6 +81,12 @@ ol {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transform: translateX(100%);
+  transition: 0.8s var(--easing);
+
+  .site-nav-checkbox:checked ~ & {
+    transform: translateX(0);
+  }
 
   //ナビゲーション
   &__nav {
@@ -98,4 +120,93 @@ ol {
       margin: 0 8px;
     }
   }
+
+  // PC =====
+  @include mq {
+    position: static;
+    transform: translateX(0) !important;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    //ナビゲーション
+    &__nav {
+      align-items: flex-start;
+      text-align: start;
+      padding: 0 15px;
+
+      li {
+        margin-bottom: 1.5em;
+      }
+
+      a {
+        font-size: 1rem;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 3px;
+
+        &::after {
+          content: "";
+          height: 1px;
+          width: 100%;
+          position: absolute;
+          background-color: var(--color-primary);
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
 } //.site-nav-container
+
+// ハンバーガーボタン
+.site-nav-toggle {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before,
+  &::after,
+  span {
+    content: "";
+    height: 1px;
+    width: 30px;
+    background-color: var(--color-primary);
+    position: absolute;
+    transition: 0.4s var(--easing);
+  }
+
+  span {
+    transform-origin: left center;
+  }
+
+  &::before {
+    top: calc(50% - 8px);
+  }
+  &::after {
+    top: calc(50% + 8px);
+  }
+
+  .site-nav-checkbox:checked ~ & {
+    span {
+      transform: scaleX(0);
+    }
+    &::before {
+      top: 50%;
+      transform: rotate(45deg);
+    }
+    &::after {
+      top: 50%;
+      transform: rotate(-45deg);
+    }
+  }
+} //.site-nav-toggle
+
+.site-nav-checkbox {
+  display: none;
+}

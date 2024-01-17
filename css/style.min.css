@@ -131,6 +131,19 @@ ol {
     background-color: var(--color-primary);
     left: 0;
     bottom: 0;
+    transform: scaleX(0);
+    transition: transform 0.4s var(--easing);
+    transform-origin: right center;
+  }
+  .site-nav-container__nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+  .site-nav-container__sns {
+    width: 100%;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 30px;
   }
 }
 
@@ -173,6 +186,11 @@ ol {
 .site-nav-checkbox:checked ~ .site-nav-toggle::after {
   top: 50%;
   transform: rotate(-45deg);
+}
+@media screen and (min-width: 768px) {
+  .site-nav-toggle {
+    display: none;
+  }
 }
 
 .site-nav-checkbox {

@@ -152,8 +152,24 @@ ol {
           background-color: var(--color-primary);
           left: 0;
           bottom: 0;
+          transform: scaleX(0);
+          transition: transform 0.4s var(--easing);
+          transform-origin: right center;
+        }
+
+        &:hover::after {
+          transform: scaleX(1);
+          transform-origin: left center;
         }
       }
+    }
+
+    // SNS
+    &__sns {
+      width: 100%;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 30px;
     }
   }
 } //.site-nav-container
@@ -204,6 +220,11 @@ ol {
       top: 50%;
       transform: rotate(-45deg);
     }
+  }
+
+  // PC =====
+  @include mq {
+    display: none;
   }
 } //.site-nav-toggle
 

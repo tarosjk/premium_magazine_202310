@@ -292,3 +292,88 @@ main {
     }
   }
 } //.main-visual
+
+// バックナンバー
+.backnumbers {
+  // 見出し
+  &__title {
+    font-size: 0.8rem;
+    font-weight: 400;
+    padding: 20px;
+    background-color: #f8f8f8;
+
+    &::first-line {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+  }
+
+  // バックナンバーリスト
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+} //.backnumbers
+
+// バックナンバーアイテム
+.backnumber-item {
+  width: 100%;
+  // flex-basis: 100%;
+  padding: 40px 20px;
+
+  a {
+    text-decoration: none;
+    color: var(--color-primary);
+  }
+
+  &__cover {
+    max-width: 300px;
+    width: 65%;
+    margin: 0 auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.15);
+  }
+
+  &__meta {
+    margin-top: 40px;
+
+    span {
+      display: block;
+    }
+
+    span:first-of-type,
+    span:nth-of-type(2) {
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+    span:nth-of-type(3) {
+      font-size: 1.4rem;
+    }
+  }
+
+  // PC =====
+  @include mq {
+    width: 50%;
+    // flex-basis: 50%;
+  }
+} //.backnumber-item
+
+.backnumber {
+  &-101 {
+    background-color: #ecf4f9;
+  }
+  &-100 {
+    background-color: #fbf3d2;
+  }
+  &-99 {
+    background-color: #f9f2eb;
+  }
+  &-98 {
+    background-color: #fae8c2;
+  }
+  &-97 {
+    background-color: #e2efe7;
+  }
+  &-96 {
+    background-color: #f2f5fb;
+  }
+}

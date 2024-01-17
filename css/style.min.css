@@ -19,6 +19,11 @@ body {
   font-family: var(--font-primary);
   padding-top: 60px;
 }
+@media screen and (min-width: 768px) {
+  body {
+    padding-top: 0;
+  }
+}
 
 html {
   font-size: 14px;
@@ -195,4 +200,52 @@ ol {
 
 .site-nav-checkbox {
   display: none;
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    margin-left: 200px;
+  }
+}
+
+.main-visual {
+  background: url(../img/mv-bg@2x.jpg) no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: calc(100vh - 60px);
+}
+.main-visual__title {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+}
+.main-visual__title span {
+  display: inline-block;
+  background-color: #fff;
+  margin-bottom: 8px;
+  padding: 0 5px;
+  font-feature-settings: "palt" 1;
+  font-weight: 400;
+}
+.main-visual__title span:first-of-type {
+  font-size: 1.2rem;
+}
+.main-visual__title span:nth-of-type(2),
+.main-visual__title span:nth-of-type(3) {
+  font-size: 2rem;
+}
+.main-visual__cover {
+  width: min(80%, 400px);
+}
+@media screen and (min-width: 768px) {
+  .main-visual {
+    height: 100vh;
+  }
+  .main-visual__cover {
+    height: 80vh;
+    width: auto;
+  }
 }/*# sourceMappingURL=style.min.css.map */

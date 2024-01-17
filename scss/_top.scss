@@ -16,6 +16,10 @@ img {
 body {
   font-family: var(--font-primary);
   padding-top: 60px;
+
+  @include mq {
+    padding-top: 0;
+  }
 }
 
 html {
@@ -231,3 +235,60 @@ ol {
 .site-nav-checkbox {
   display: none;
 }
+
+// メイン
+main {
+  @include mq {
+    margin-left: 200px;
+  }
+}
+
+// メインビジュアル
+.main-visual {
+  background: url(../img/mv-bg@2x.jpg) no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: calc(100vh - 60px);
+
+  // タイトル
+  &__title {
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+
+    span {
+      display: inline-block;
+      background-color: #fff;
+      margin-bottom: 8px;
+      padding: 0 5px;
+      font-feature-settings: "palt" 1;
+      font-weight: 400;
+    }
+
+    span:first-of-type {
+      font-size: 1.2rem;
+    }
+    span:nth-of-type(2),
+    span:nth-of-type(3) {
+      font-size: 2rem;
+    }
+  }
+
+  // 表紙
+  &__cover {
+    width: min(80%, 400px);
+  }
+
+  // PC =====
+  @include mq {
+    height: 100vh;
+
+    &__cover {
+      height: 80vh;
+      width: auto;
+    }
+  }
+} //.main-visual

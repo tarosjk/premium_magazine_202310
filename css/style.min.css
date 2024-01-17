@@ -239,6 +239,7 @@ ol {
 }
 .main-visual__cover {
   width: min(80%, 400px);
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.15));
 }
 @media screen and (min-width: 768px) {
   .main-visual {
